@@ -1,29 +1,54 @@
+from pygame_functions import *
 import pygame as pg
 import random, sys, time, math
 from pygame.locals import *
 
-pg.init()
 #declaring variables
+screenWidth = 1000
+screenHeight = 750
 fps = 60
-display_width = 1500
-display_length = 1071
-gameDisplay = pygame.display.set_mode((display_width,display_length))
-pygame.display.set_caption('Graphic Test')
-fpsClock = pygame.time.Clock()
-pygame.font.init()
-levelFont = pygame.font.SysFont('Comic Sans MS', 60)
-textsurface = levelFont.render('1', False, Black)
-events = pg.event.get()
-
-#function that will run the game
-def gameLoop():
-    game_Exit = False
-    # game update thing
-    while not game_Exit:
-        for event in events:
-            if event.type == QUIT:
-                pg.quit()
+#setting screen size
+screenSize(screenWidth, screenHeight)
+setAutoUpdate(True)
 
 
-gameLoop()
+xPos = 500
+yPos = 350
+xSpeed = 0
+ySpeed = 0
+setBackgroundImage("city.jpg")
+person = makeSprite("personSprite.png")
+showSprite(person)
+moveSprite(person, xPos, yPos)
+
+while True:
+#key press to detect movement
+    if keyPressed("up"):
+        #rotateSprite(person, 90)
+        ySpeed -= 2
+    if keyPressed('down'):
+        #rotateSprite(person, -90)
+        ySpeed += 2
+    if keyPressed('right'):
+        rotateSprite(person, 0, True)
+        xSpeed += 2
+    if keyPressed('left'):
+        rotateSprite(person, 0, False)
+        xSpeed -= 2
+    xPos += xSpeed
+    if xPos > 560:
+        xPos = -100
+    elif xPos < -100:
+        xPos = 560
+    yPos += ySpeed
+    if yPos > 560:
+        yPos = -100
+    elif yPos < -100:
+        yPos = 560
+    ySpeed = 0
+    xSpeed = 0
+    moveSprite(person, xPos, yPos)
+    tick(fps)
+
+endWait()
 pg.quit()
