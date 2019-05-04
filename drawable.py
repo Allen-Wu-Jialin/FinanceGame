@@ -1,8 +1,13 @@
 import abc
+from pygame_functions import *
 
 
 class Drawable(metaclass=abc.ABCMeta):
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=0, y=0, sprite=None):
+        self.__sprite = sprite
+        if self.__sprite is not None:
+            showSprite(self.__sprite)
+
         self.__x_coord = x
         self.__y_coord = y
 
@@ -15,6 +20,9 @@ class Drawable(metaclass=abc.ABCMeta):
 
     def set_y_position(self, y):
         self.__y_coord = y
+
+    def get_sprite(self):
+        return self.__sprite
 
     def get_coord(self):
         return self.__x_coord, self.__y_coord

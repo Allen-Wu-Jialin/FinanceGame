@@ -2,6 +2,8 @@ from pygame_functions import *
 import pygame as pg
 import random, sys, time, math
 from pygame.locals import *
+from player import Player
+from miscutils import MiscUtils
 
 #declaring variables
 screenWidth = 600
@@ -11,21 +13,20 @@ fps = 60
 screenSize(screenWidth, screenHeight)
 setAutoUpdate(True)
 
+player = Player()
 
 xPos = 500
 yPos = 500
+player.set_coord(xPos, yPos)
 xSpeed = 0
 ySpeed = 0
 setBackgroundImage("city2.jpg")
-person = makeSprite("personSprite.png")
 while(xPos > 600):
     scrollBackground(600,0)
     xPos -= 600
 while(yPos > 416):
     scrollBackground(0,416)
     yPos -= 416
-showSprite(person)
-moveSprite(person, xPos, yPos)
 
 while True:
 #key press to detect movement
@@ -44,14 +45,13 @@ while True:
             scrollBackground(0, -416)
             yPos = 0
     if keyPressed('right'):
-        rotateSprite(person, 0, True)
         if(xPos <= 600):
             xSpeed += 2
         else:
             scrollBackground(600, 0)
             xPos = 0
+
     if keyPressed('left'):
-        rotateSprite(person, 0, False)
         if(xPos >= 0):
             xSpeed -= 2
         else:
@@ -61,19 +61,13 @@ while True:
         print('test')
     #if keyPressed('space'):
         #insert function to enter building/perform action
-    xPos += xSpeed
-    if xPos > 660:
-        xPos = -100
-    elif xPos < -100:
-        xPos = 660
-    yPos += ySpeed
-    if yPos > 560:
-        yPos = -100
-    elif yPos < -100:
-        yPos = 560
+    xPos = MiscUtils.Loop(xPos + xSpeed, -100, 660)
+    yPos = MiscUtils.Loop(yPos + ySpeed, -100, 560)
+
     ySpeed = 0
     xSpeed = 0
-    moveSprite(person, xPos, yPos)
+    player.set_coord(xPos, yPos)
+    player.draw()
     tick(fps)
 
 endWait()

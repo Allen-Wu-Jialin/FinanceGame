@@ -4,7 +4,7 @@ from pygame_functions import *
 
 class Player(Drawable):
     def __init__(self):
-        super(Drawable, self).__init__()
+        super().__init__(sprite=makeSprite("personSprite.png"))
 
         # Range goes from 0-100 for every stat except money
         self.__happiness = 100
@@ -26,6 +26,4 @@ class Player(Drawable):
         self.__fatigue += fatigue_amount
 
     def draw(self):
-        person = makeSprite("personSprite.png")
-        showSprite(person)
-        moveSprite(person, self.get_x_position(), self.get_y_position())
+        moveSprite(self.get_sprite(), self.get_x_position(), self.get_y_position())
