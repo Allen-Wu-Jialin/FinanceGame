@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="28" height="16" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" source="Sample.tsx"/>
+ <tileset firstgid="449" source="moderncity.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyVzWV3EAQYhuExGD1Gd3d31+hOQeluNkClu7u7OySMMZqRSqdJlwGipJJKXv4Dd857fbvP+8QICAgIJCaxCCI2cYhLPOKTgIQEk4gQEpOEpCQjOSlISSpSk4a0pCM9GchIJjKThaxkIzs5yEkucpOHvOQjPwUoSCEKU4SiFKM4JShJKUpThrKUozwVqEgolahMFapSjerUoCa1qE0d6lKP+jSgIY1ozAc0oSkf8hHNaE4LWtKK1rShLe1oTwc60onOdKEr3ehOD3oSRji96E0fPuYTPqUv/ejPAAYyiMEMYSjDGM4IRjKK0YxhLOMYzwQmMonJTGEq05jODGYyi9nMYS7zmM8CFrKIxSxhKctYzgpWsorVrGEt61jPBj5jI5vYzBY+5wu+5Csi2Eok29jODnayi93sYS9R7GM/BzjIIQ7zNd9whKMc4zgnOMkpTnOGs5zjPN/yHd/zAz/yExe4yCUuc4WrXOM6N7jJLX7mF37lN25zh9+5yx/8yT3u84CHPOIxf/E3T3jKM57zgpf8w7+84jVveMs7AmI4AolJLIKITRziEo/4JCAhwSQihMQkISnJSE4KUpKK1KQhLelITwYykonMZCEr2chODnKSi9zkIS/5yE8BClKIwhShKMUoTglKUorSlKEs5ShPBSoSSiUqU4WqVKM6NahJLWpTh7rUoz4NaEgjRgb+f631bWhLO9rTgY50ojNd6Eo3utODnoQRHs29QfrBDGEowxjOiP/+MIrRjGEs4xjPBCYyKZp78/TzWcBCFrGYJSxlGctZwUpWsZo1rGVdNPci9FuJZBvb2cFOdrGbPewlin3s5wAHOcR7QT/Iog==
+  </data>
+ </layer>
+ <layer id="2" name="Top Layer" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGHgAABwAAAQ==
+  </data>
+ </layer>
+</map>
