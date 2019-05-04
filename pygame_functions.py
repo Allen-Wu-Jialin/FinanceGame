@@ -732,8 +732,13 @@ def scrollBackground(x, y):
 def setAutoUpdate(val):
     global screenRefresh
     screenRefresh = val
-
-
+def tabClick():
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_TAB:
+                return True
+            else:
+                return False
 if __name__ == "__main__":
     print(""""pygame_functions is not designed to be run directly.
     See the wiki at https://github.com/StevePaget/Pygame_Functions/wiki/Getting-Started for more information""")
