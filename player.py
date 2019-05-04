@@ -12,6 +12,10 @@ class Player(Drawable):
         self.__hunger = 100
         self.__fitness = 100
         self.__fatigue = 0
+        self.__location = "outside"
+
+    def set_location(self, location):
+        self.__location = location
 
     def increase_money(self, money_amount):
         self.__money += money_amount
@@ -24,6 +28,9 @@ class Player(Drawable):
 
     def increase_fatigue(self, fatigue_amount):
         self.__fatigue += fatigue_amount
+
+    def get_location(self):
+        return self.__location
 
     def draw(self):
         moveSprite(self.get_sprite(), self.get_x_position(), self.get_y_position())
