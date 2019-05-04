@@ -57,7 +57,7 @@ while True:
         else:
             scrollBackground(-600, 0)
             xPos = 600
-    if tabClick():
+    if keyPressed('tab'):
         print('test')
     #if keyPressed('space'):
         #insert function to enter building/perform action
@@ -66,7 +66,7 @@ while True:
         xPos = -100
     elif xPos < -100:
         xPos = 660
-    yPos += ySpeed  
+    yPos += ySpeed
     if yPos > 560:
         yPos = -100
     elif yPos < -100:
