@@ -2,20 +2,29 @@ from pygame_functions import *
 import pygame as pg
 import random, sys, time, math
 from pygame.locals import *
+
+from player import Player
+from miscutils import MiscUtils
+
 #declaring variables
 screenWidth = 600
 screenHeight = 400
 fps = 60
+
 #setting screen size
 screenSize(screenWidth, screenHeight)
 setAutoUpdate(True)
 ScreenX = 1
 ScreenY = 1
+
 #new Screen variables
 office = False
 fastFood = False
 home = False
-outside = False
+outside = True
+
+player = Player()
+player.set_location("outside")
 
 increment = 0
 #Variables to see if you're at edge of screen
@@ -26,16 +35,22 @@ xMin = False
 
 xPos = 500
 yPos = 500
+player.set_coord(xPos, yPos)
 xSpeed = 0
 ySpeed = 0
+
 setBackgroundImage("FINANCEGAME4.bmp")
 person = makeSprite("personSprite.png")
+
+
+
 while(xPos > 600):
     scrollBackground(600,0)
     ScreenX += 1
     xPos -= 600
 while(yPos > 400):
     ScreenY += 1
+
     scrollBackground(0,400)
     yPos -= 400
 
@@ -69,6 +84,7 @@ while True:
             scrollBackground(600, 0)
             ScreenX += 1
             xPos = 0
+
     if keyPressed('left') and not xMin:
         transformSprite(person, 0,1, False)
         if(xPos >= 0):
@@ -136,7 +152,8 @@ while True:
 
     ySpeed = 0
     xSpeed = 0
-    moveSprite(person, xPos, yPos)
+    player.set_coord(xPos, yPos)
+    player.draw()
     tick(fps)
 
 endWait()
