@@ -38,13 +38,15 @@ while(yPos > 400):
     ScreenY += 1
     scrollBackground(0,400)
     yPos -= 400
+
+    scrollBackground(0,416)
+    yPos -= 416
+
 showSprite(person)
 moveSprite(person, xPos, yPos)
-
 while True:
 #key press to detect movement
     if keyPressed("up") and not yMin:
-        #rotateSprite(person, 90)
         if(yPos >= 0):
             ySpeed -= 2
         else:
@@ -89,11 +91,15 @@ while True:
             increment += 1
 
         print (increment)
+        #insert function to enter building/perform action
         #will check which screen it is on and see if its at a door, if it is it will enter the door
         #if(ScreenX == 1 and ScreenY ==1 and xPos == SMTH and yPos == ELSE):
-            #fastFood = True
-            #
-    if outside:
+        #fastFood = True
+    
+    xPos = MiscUtils.Loop(xPos + xSpeed, -100, 660)
+    yPos = MiscUtils.Loop(yPos + ySpeed, -100, 560)
+
+    if player.get_location() == "outside":
         #this allows the screen to change
         xPos += xSpeed
         if xPos > 660:

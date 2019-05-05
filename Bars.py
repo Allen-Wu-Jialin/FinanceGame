@@ -1,6 +1,8 @@
 #This will create several classes with bars that update over time.
+from drawable import Drawable
 
-class bar():
+
+class bar(Drawable):
     def __init__(self):
 
 class hunger(bar):
