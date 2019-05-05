@@ -2,11 +2,12 @@ from pygame_functions import *
 import pygame as pg
 import random, sys, time, math
 from pygame.locals import *
+from Bars import *
 
 from player import Player
 from miscutils import MiscUtils
 
-#declaring variables
+#declaring window variables
 screenWidth = 600
 screenHeight = 400
 fps = 60
@@ -25,6 +26,14 @@ outside = True
 
 player = Player()
 player.set_location("outside")
+
+#Declaring a list of player stat bars
+player_bars = [
+    hunger(player, 10, 10),
+    happiness(player, 10, 25),
+    fatigue(player, 10, 40),
+    fitness(player, 10, 55)
+]
 
 increment = 0
 #Variables to see if you're at edge of screen
@@ -154,6 +163,11 @@ while True:
     xSpeed = 0
     player.set_coord(xPos, yPos)
     player.draw()
+
+    for bar in player_bars:
+        bar.update()
+        bar.draw()
+
     tick(fps)
 
 endWait()

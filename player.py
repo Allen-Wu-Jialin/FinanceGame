@@ -32,5 +32,17 @@ class Player(Drawable):
     def get_location(self):
         return self.__location
 
+    def get_hunger(self):
+        return self.__hunger
+
+    def get_fitness(self):
+        return self.__fitness
+
+    def get_fatigue(self):
+        return self.__fatigue
+
+    def get_happiness(self):
+        return self.__happiness
+
     def draw(self):
         moveSprite(self.get_sprite(), self.get_x_position(), self.get_y_position())
