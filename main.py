@@ -2,10 +2,9 @@ from pygame_functions import *
 import pygame as pg
 import random, sys, time, math
 from pygame.locals import *
-
 #declaring variables
 screenWidth = 600
-screenHeight = 416
+screenHeight = 400
 fps = 60
 #setting screen size
 screenSize(screenWidth, screenHeight)
@@ -18,6 +17,7 @@ fastFood = False
 home = False
 outside = False
 
+increment = 0
 #Variables to see if you're at edge of screen
 xMax = False
 yMax = False
@@ -28,16 +28,16 @@ xPos = 500
 yPos = 500
 xSpeed = 0
 ySpeed = 0
-setBackgroundImage("city2.jpg")
+setBackgroundImage("FINANCEGAME4.bmp")
 person = makeSprite("personSprite.png")
 while(xPos > 600):
     scrollBackground(600,0)
     ScreenX += 1
     xPos -= 600
-while(yPos > 416):
+while(yPos > 400):
     ScreenY += 1
-    scrollBackground(0,416)
-    yPos -= 416
+    scrollBackground(0,400)
+    yPos -= 400
 showSprite(person)
 moveSprite(person, xPos, yPos)
 
@@ -48,19 +48,19 @@ while True:
         if(yPos >= 0):
             ySpeed -= 2
         else:
-            scrollBackground(0, 416)
-            yPos = 416
+            scrollBackground(0, 400)
+            yPos = 400
             ScreenY += 1
     if keyPressed('down') and not yMax:
         #rotateSprite(person, -90)
-        if(yPos <= 416):
+        if(yPos <= 400):
             ySpeed += 2
         else:
-            scrollBackground(0, -416)
+            scrollBackground(0, -400)
             yPos = 0
             ScreenY -= 1
     if keyPressed('right') and not xMax:
-        rotateSprite(person, 0, True)
+        transformSprite(person, 0, 1, True)
         if(xPos <= 600):
             xSpeed += 2
         else:
@@ -68,7 +68,7 @@ while True:
             ScreenX += 1
             xPos = 0
     if keyPressed('left') and not xMin:
-        rotateSprite(person, 0, False)
+        transformSprite(person, 0,1, False)
         if(xPos >= 0):
             xSpeed -= 2
         else:
@@ -80,7 +80,15 @@ while True:
         #this will then display the bars for hunger, happiness, fatigue, and fitness
     if keyPressed('space'):
         #insert function to enter building/perform action
-        print('Space pressed')
+        #print('Space pressed')
+        if increment % 2 == 1:
+            outside = True
+            increment += 1
+        else:
+            outside = False
+            increment += 1
+
+        print (increment)
         #will check which screen it is on and see if its at a door, if it is it will enter the door
         #if(ScreenX == 1 and ScreenY ==1 and xPos == SMTH and yPos == ELSE):
             #fastFood = True
